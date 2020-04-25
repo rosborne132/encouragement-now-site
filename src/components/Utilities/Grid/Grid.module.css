@@ -1,0 +1,10 @@
+.wrapper {
+    display: grid;
+    grid-gap: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+    .wrapper {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
