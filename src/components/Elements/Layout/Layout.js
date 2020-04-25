@@ -24,8 +24,11 @@ export const Layout = ({ children }) => {
         <>
             <SEO title={title} />
 
-            <main style={{ height: '98vh' }}>{children}</main>
-            <footer>© {new Date().getFullYear()}, Built with</footer>
+            <main>{children}</main>
+            <footer>
+                <p>If you would like to send your love, text 6692732451</p>
+                <p>© {new Date().getFullYear()}</p>
+            </footer>
         </>
     )
 }
