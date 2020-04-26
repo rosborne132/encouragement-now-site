@@ -25,10 +25,7 @@ export const Layout = ({ children }) => {
             <SEO title={title} />
 
             <main>{children}</main>
-            <footer>
-                <p>If you would like to send your love, text 6692732451</p>
-                <p>© {new Date().getFullYear()}</p>
-            </footer>
+            <footer>© {new Date().getFullYear()}</footer>
         </>
     )
 }
