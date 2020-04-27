@@ -76,11 +76,11 @@ export default () => (
         </section>
 
         <section>
-            <header>
-                <h2>Call to action!</h2>
-            </header>
             <Container width={width}>
-                <p>If you would like to send your love, text 6692732451</p>
+                <p>
+                    If you would like to send your love, text{' '}
+                    <span className="code-block">6692732451</span>
+                </p>
             </Container>
         </section>
     </Layout>
