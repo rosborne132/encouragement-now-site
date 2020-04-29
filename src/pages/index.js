@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 import { Button, FormInput } from 'styledoui'
 
 import { Card, Layout, Modal } from '../components/Elements'
@@ -31,28 +32,45 @@ export default () => {
     const [phone, setPhone] = React.useState('')
     const [loading, setLoading] = React.useState(false)
 
-    const onSubmit = e => {
+    const onSubmit = async e => {
         e.preventDefault()
-        console.log('Hello')
+        setLoading(true)
+        const user = { name, phone: phone.replace(/[^\d]/g, '') }
 
-        // Get values
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+                'x-api-key': process.env.GATSBY_API_KEY
+            }
+        }
 
-        // Make request to api
-
-        // display results
+        try {
+            await axios.post(process.env.GATSBY_API_URL, user, config)
+        } catch (err) {
+            console.error(err)
+        } finally {
+            setLoading(false)
+            setModalState(false)
+        }
     }
 
     return (
         <Layout>
             <Modal isShowing={modalState} onClose={() => setModalState(false)}>
                 <form onSubmit={onSubmit}>
+                    <p style={{ fontSize: '16px', textAlign: 'left' }}>
+                        Sign up to receive encouraging words from others.
+                        <span role="img" aria-label="emoji">
+                            &#128521;
+                        </span>
+                    </p>
                     <fieldset style={{ border: 'none', margin: 0, padding: 0 }}>
                         <div style={{ padding: '0 0 10px' }}>
                             <FormInput
                                 type="text"
                                 value={name}
                                 onChange={e => setName(e.target.value)}
-                                placeholder="Enter name..."
+                                placeholder="Enter first name..."
                                 className="input"
                                 required
                             />

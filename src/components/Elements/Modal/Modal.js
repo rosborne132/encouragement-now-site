@@ -12,7 +12,13 @@ export const Modal = React.memo(({ children, isShowing, onClose }) => {
             <div className={styles.container}>
                 <div className={styles.wrapper} style={{ transform, opacity }}>
                     <header className={styles.header}>
-                        <span className={styles.closeBtn} onClick={onClose}>
+                        <span
+                            className={styles.closeBtn}
+                            onClick={onClose}
+                            onKeyDown={onClose}
+                            role="button"
+                            tabIndex={0}
+                        >
                             <Icon icon="closeAlt" size="m1" aria-hidden />
                         </span>
                     </header>
