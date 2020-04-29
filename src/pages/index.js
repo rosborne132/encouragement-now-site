@@ -44,6 +44,9 @@ export default () => {
         const config = {
             headers: {
                 'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': 'encouragementnow.net',
+                'Access-Control-Allow-Headers': 'Content-Type',
+                'Access-Control-Allow-Methods': 'POST',
                 'x-api-key': process.env.GATSBY_API_KEY
             }
         }
