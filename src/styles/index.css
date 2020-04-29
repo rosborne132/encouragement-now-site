@@ -1,3 +1,25 @@
+.content {
+    z-index: 2;
+}
+
+.msg {
+    font-size: 18px;
+    text-align: left;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.error {
+    background-color: #f8e8e7;
+    color: #591f1a;
+}
+
+.success {
+    background-color: #ebfefe;
+    color: #214444;
+}
+
 .showcase {
     height: 100vh;
     display: flex;
@@ -36,8 +58,4 @@
     left: 0;
     background: rgba(0, 0, 0, 0.5);
     position: absolute;
-}
-
-.content {
-    z-index: 2;
 }

@@ -4,37 +4,41 @@ import { Button, FormInput } from 'styledoui'
 
 import { Card, Layout, Modal } from '../components/Elements'
 import { Container, Grid } from '../components/Utilities'
-
+import { cards } from '../data'
 import BannerVideo from '../assets/videos/banner.mp4'
 
 import '../styles/index.css'
 
-const cards = [
-    {
-        icon: 'useralt',
-        text: 'Sign up to receive texts from random users'
-    },
-    {
-        icon: 'email',
-        text: 'A random user will send there love'
-    },
-    {
-        icon: 'mobile',
-        text: 'Recieve words of encouragement along with a fun GIF'
-    }
-]
-
 const width = 90
 
 export default () => {
+    const [msg, setMsg] = React.useState({ msg: '', status: '' })
     const [modalState, setModalState] = React.useState(false)
     const [name, setName] = React.useState('')
     const [phone, setPhone] = React.useState('')
     const [loading, setLoading] = React.useState(false)
 
+    const clearForm = () => {
+        setName('')
+        setPhone('')
+    }
+
     const onSubmit = async e => {
         e.preventDefault()
         setLoading(true)
+
+        if (name.length === 0) {
+            setMsg({ msg: 'Name is required', status: 'error' })
+            setLoading(false)
+            return
+        }
+
+        if (phone.length === 0) {
+            setMsg({ msg: 'Phone is required', status: 'error' })
+            setLoading(false)
+            return
+        }
+
         const user = { name, phone: phone.replace(/[^\d]/g, '') }
 
         const config = {
@@ -50,7 +54,8 @@ export default () => {
             console.error(err)
         } finally {
             setLoading(false)
-            setModalState(false)
+            setMsg({ msg: 'User registered!', status: 'success' })
+            clearForm()
         }
     }
 
@@ -59,12 +64,18 @@ export default () => {
             <Modal isShowing={modalState} onClose={() => setModalState(false)}>
                 <form onSubmit={onSubmit}>
                     <p style={{ fontSize: '16px', textAlign: 'left' }}>
-                        Sign up to receive encouraging words from others.
+                        Sign up to receive encouraging words from others.{' '}
                         <span role="img" aria-label="emoji">
                             &#128521;
                         </span>
                     </p>
+
                     <fieldset style={{ border: 'none', margin: 0, padding: 0 }}>
+                        {msg.msg.length > 0 ? (
+                            <div className={`msg ${msg.status}`}>{msg.msg}</div>
+                        ) : (
+                            ''
+                        )}
                         <div style={{ padding: '0 0 10px' }}>
                             <FormInput
                                 type="text"
@@ -72,9 +83,9 @@ export default () => {
                                 onChange={e => setName(e.target.value)}
                                 placeholder="Enter first name..."
                                 className="input"
-                                required
                             />
                         </div>
+
                         <div style={{ padding: '10px 0 20px' }}>
                             <FormInput
                                 type="text"
@@ -82,9 +93,9 @@ export default () => {
                                 onChange={e => setPhone(e.target.value)}
                                 placeholder="Enter phone number..."
                                 className="input"
-                                required
                             />
                         </div>
+
                         <div
                             style={{
                                 display: 'flex',
@@ -96,14 +107,23 @@ export default () => {
                                 isLoading={loading}
                                 isDisabled={loading}
                                 onClick={() => setModalState(false)}
+                                style={{
+                                    backgroundColor: '#C94336',
+                                    color: '#fff'
+                                }}
                             >
                                 Cancel
                             </Button>
+
                             <Button
                                 appearance="secondary"
                                 isLoading={loading}
                                 isDisabled={loading}
                                 type="submit"
+                                style={{
+                                    backgroundColor: '#3E6FAA',
+                                    color: '#fff'
+                                }}
                             >
                                 Register
                             </Button>
