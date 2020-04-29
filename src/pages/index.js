@@ -138,6 +138,7 @@ export default () => {
                         <source src={BannerVideo} type="video/mp4" />
                     </video>
                 </div>
+
                 <header className="content">
                     <Container width={width}>
                         <h1>Encouragement Now</h1>
@@ -187,7 +188,7 @@ export default () => {
                 <Container width={width}>
                     <p>
                         If you would like to send your love, text{' '}
-                        <span className="code-block">6692732451</span>
+                        <span className="code-block">669-273-2451</span>
                     </p>
                 </Container>
             </section>
