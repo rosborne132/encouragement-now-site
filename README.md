@@ -5,11 +5,6 @@ API Repo [Link](https://github.com/rosborne132/encouragement-now-api)
 
 I built this site to help users to register for the encouragement now service.
 
-## Summary
-
-![manageGames](https://res.cloudinary.com/rosborne/image/upload/v1562437064/Backlogger/gameManage.png)
-Backlogger is an app that allows users to create a list of consoles they are playing games on. Users can keep track of what games they are playing by listing games and organizing them by console. The point of backlogger is for users to list the games they are currently playing so that they don't get distracted.
-
 Tech Used:
 
 -   React
