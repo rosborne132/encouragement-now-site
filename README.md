@@ -38,5 +38,5 @@ yarn install
 yarn run start
 ```
 
-Once you have registered on the site you should receive a text that looks like the one below.
+Once you have registered on the site you should receive a text that looks like the one below. <br>
 ![text](https://res.cloudinary.com/rosborne/image/upload/v1588207382/encouragement-now/text.png)
