@@ -12,30 +12,31 @@ Tech Used:
 
 ## Running the app locally
 
-### Create an api key
+### Setup env file
 
-Create a dev stack in the api Repo then follow the steps to create an api key
-[Setup API Key](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-setup-api-key-with-console.html)
-[Setup Usage Plan](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-create-usage-plans-with-console.html)
+Create a dev stack in the API Repo then follow the steps to create an API key
 
-### Create env.development file
+-   [Setup API Key](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-setup-api-key-with-console.html)
+-   [Setup Usage Plan](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-create-usage-plans-with-console.html)
+
+Sample env.development file
 
 ```env
-GATSBY_API_URL= (Your api local/dev's `registeruser` end point)
-GATSBY_API_KEY= (Your api key)
+GATSBY_API_URL= (Your API local/dev's `registeruser` endpoint)
+GATSBY_API_KEY= (Your API key)
 ```
 
-### Install dependenices
+### Install dependencies
 
 ```bash
 yarn install
 ```
 
-### Running local site
+### Running the local site
 
 ```bash
 yarn run start
 ```
 
-Once you have registered on the site you should receive a text that look like the one below.
+Once you have registered on the site you should receive a text that looks like the one below.
 ![text](https://res.cloudinary.com/rosborne/image/upload/v1588207382/encouragement-now/text.png)
