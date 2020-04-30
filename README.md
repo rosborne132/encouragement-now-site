@@ -36,3 +36,6 @@ yarn install
 ```bash
 yarn run start
 ```
+
+Once you have registered on the site you should receive a text that look like the one below.
+![text](https://res.cloudinary.com/rosborne/image/upload/v1588207382/encouragement-now/text.png)
